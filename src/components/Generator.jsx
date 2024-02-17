@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SectionWrapper from './SectionWrapper'
 import { SCHEMES, WORKOUTS } from '../utils/minty'
+import Button from './Button'
 
 function Header(props) {
   const { index, title, description } = props
@@ -14,11 +15,10 @@ function Header(props) {
     </div>
   )
 }
-export default function Generator() {
+export default function Generator(props) {
+  const { muscles, setMuscles, poison, setPoison, goal, setGoal, updateWorkout } = props
   const [showModal, setShowModal] = useState(false)
-  const [poison, setPoison] = useState('individual')
-  const [muscles, setMuscles] = useState([])
-  const [goal, setGoal] = useState('strength_power')
+
   //let showModal = false
 
   function toggleModal() {
@@ -42,7 +42,7 @@ export default function Generator() {
     }
 
     setMuscles([...muscles, muscleGroup])
-    if (muscles.length === 3) {
+    if (muscles.length === 2) {
       setShowModal(false)
     }
   }
@@ -56,7 +56,7 @@ export default function Generator() {
             <button onClick={() => {
               setMuscles([])
               setPoison(type)
-            }} className={'bg-slate-950 border duration-500 border-green-400 hover:border-green-900 py-3 rounded-lg' + (type === poison ? ' border-green-900' : ' border-green-400')} key={typeIndex}>
+            }} className={'bg-slate-950 border duration-500 px-4 border-green-400 hover:border-green-900 py-3 rounded-lg' + (type === poison ? ' border-green-900' : ' border-green-400')} key={typeIndex}>
               <p className='capitalize'>{type.replaceAll('_', " ")}</p>
             </button>
           )
@@ -88,12 +88,16 @@ export default function Generator() {
           return (
             <button onClick={() => {
               setGoal(scheme)
-            }} className={'bg-slate-950 border duration-500 border-green-400 hover:border-green-900 py-3 rounded-lg' + (scheme === goal ? ' border-green-900' : ' border-green-400')} key={schemeIndex}>
+            }} className={'bg-slate-950 border duration-500 border-green-400 hover:border-green-900 py-3 rounded-lg px-4' + (scheme === goal ? ' border-green-900' : ' border-green-400')} key={schemeIndex}>
               <p className='capitalize'>{scheme.replaceAll('_', " ")}</p>
             </button>
           )
         })}
       </div>
+      <Button text={"Formulate"}></Button>
     </SectionWrapper>
+
+
+
   )
 }
