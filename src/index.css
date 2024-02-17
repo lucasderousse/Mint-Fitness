@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+span {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.greenShadow{
+  box-shadow: 3px 3px 0 0 hsl(130, 94%, 68%);
+}
+
+.greenShadow:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 0 hsl(130, 94%, 68%);
+}
