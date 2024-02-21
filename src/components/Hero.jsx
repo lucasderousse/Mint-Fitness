@@ -13,7 +13,7 @@ export default function Hero() {
             <Button func={() => {
                 window.location.href = '#generate'
             }} text={"Let\'s Go!"}></Button>
-            <p className='text-xs'>Checkout the <a href="https://lucasderousse.github.io/" className='font-bold text-green-400 underline'>creator</a>, or the <a href="" className='font-bold text-green-400 underline'>github</a> for this project</p>
+            <p className='text-xs'>Checkout the <a href="https://lucasderousse.github.io/" className='font-bold text-green-400 underline'>creator</a>, or the <a href="https://github.com/lucasderousse/Mint-Fitness" className='font-bold text-green-400 underline'>github</a> for this project</p>
         </div>
     )
 }
